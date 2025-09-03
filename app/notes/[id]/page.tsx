@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props) {
 
   try {
     note = await fetchNoteById(id);
-  } catch (error) {
+  } catch  {
     note = null;
   }
 
