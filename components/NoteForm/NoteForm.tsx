@@ -17,7 +17,7 @@ export default function NoteForm() {
     onSuccess: () => {
       clearDraft();
        queryClient.invalidateQueries({ queryKey: ["notes"] });
- router.push("/notes");
+ router.back();
     
     },
   });
@@ -26,8 +26,14 @@ const router = useRouter();
     router.back(); 
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setDraft({ [e.target.name]: e.target.value });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setDraft({
+      ...draft, 
+      [name]: value, 
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
