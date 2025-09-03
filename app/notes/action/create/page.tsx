@@ -3,24 +3,21 @@ import NoteForm from "@/components/NoteForm/NoteForm";
 import css from "./CreateNote.module.css"
 import { Metadata } from "next";
 
-export const metadata:Metadata = {
-  title: 'Create Note | NoteHub',
-  description: 'Create a new note in NoteHub. Save drafts and manage your notes easily.',
-
+export const metadata: Metadata = {
+  title: "Create Note | NoteHub",
+  description: "Create a new note in NoteHub. Save drafts and manage your notes easily.",
+  alternates: {
+    canonical: "/notes/action/create",
+  },
   openGraph: {
-    title: 'Create Note | NoteHub',
-    description: 'Create a new note in NoteHub. Save drafts and manage your notes easily.',
+    title: "Create Note | NoteHub",
+    description: "Create a new note in NoteHub. Save drafts and manage your notes easily.",
+    url: "/notes/action/create", 
     images: [
-      {
-        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'NoteHub',
-      },
+      "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
     ],
   },
 };
-
 export default function CreateNote() {
   return (
     <main className={css.main}>

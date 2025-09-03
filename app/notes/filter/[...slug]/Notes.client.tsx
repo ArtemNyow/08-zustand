@@ -34,12 +34,16 @@ export default function NotesClient({ initialTag = '', initialPage = 1 }: NotesC
 
   useEffect(() => {
     setPage(1);
-  }, [debouncedSearch]);
+  }, [debouncedSearch, initialTag]);
 
-  useEffect(() => {
-    if (isError) toast.error('Something went wrong.');
-    else if (!isLoading && data?.notes.length === 0) toast.error('No notes found.');
-  }, [isError, data, isLoading]);
+useEffect(() => {
+  if (isError) {
+    toast.error('Something went wrong.');
+  } else if (!isLoading && data?.notes?.length === 0) {
+    toast.error('No notes found.');
+  }
+}, [isError, isLoading, data?.notes?.length]);
+
 
   return (
     <div className={css.app}>

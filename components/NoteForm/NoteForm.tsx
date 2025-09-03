@@ -16,7 +16,7 @@ export default function NoteForm() {
     mutationFn: createNote,
     onSuccess: () => {
       clearDraft();
-      handleCancel();
+       router.back(); 
     
     },
   });
